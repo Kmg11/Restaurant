@@ -1,0 +1,33 @@
+{
+  "name": "food_website",
+  "version": "1.0.0",
+  "description": "ZOhdi First Project [Food Website]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kmg11/Food_Website.git"
+  },
+  "keywords": [
+    "Food"
+  ],
+  "author": "Kirolos Mahfouz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kmg11/Food_Website/issues"
+  },
+  "homepage": "https://github.com/Kmg11/Food_Website#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.5.5",
+    "bootstrap": "^5.0.0-beta1",
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.0",
+    "node-sass": "^5.0.0"
+  }
+}
