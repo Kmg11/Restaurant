@@ -1,0 +1,69 @@
+.landing-page {
+	background-image: url("../images/bg-dark.jpg");
+	background-size: cover;
+	height: 100vh;
+	padding: 25px 0;
+
+	.logo {
+		position: relative;
+		width: 35px;
+		height: auto;
+		overflow: hidden;
+		display: inline-block;
+
+		&::before {
+			content: '';
+			display: block;
+			padding-top: 131.4%;
+		}
+
+		img {
+			width: 100%;
+			height: 200%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	nav {
+		float: right;
+
+		ul {
+			list-style: none;
+			margin-top: 1rem; // Override On Bootstrap Reboot
+			
+			li {
+				display: inline-block;
+				font-size: 14px;
+				color: #fff;
+				margin-left: 60px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-left: 130px;
+
+					.icon {
+						margin-left: 5px;
+						vertical-align: middle;
+					}
+				}
+				
+				a {
+					color: inherit;
+					text-decoration: none;
+
+					&,
+					&:hover,
+					&:focus {
+						color: inherit;
+					}	
+				}
+			}
+		}
+	}
+}

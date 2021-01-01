@@ -4,10 +4,11 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title Restaurant - Home
+		link(rel="stylesheet", href="css/vendors/all.css")
 		link(rel="stylesheet", href="css/main.css")
 	body
-
-	| hello
-	//- Scripts
-	script(src="js/venders/jquery.js")
-	script(src="js/main.js")
+		include layout/_header.pug
+		
+		//- Scripts
+		script(src="js/vendors/jquery.js")
+		script(src="js/main.js")
