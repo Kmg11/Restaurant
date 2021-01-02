@@ -1,1 +1,1 @@
-$(document).ready((()=>{}));
+$((function(){let n=!1,s=$(".list-item");$(".nav-btn").on("click",(function(){n||(n=!0,s.each((function(){$(this).toggleClass("show")})),setTimeout((()=>{n=!1}),900))})),$(window).on("resize",(function(){s.hasClass("show")&&s.each((function(){$(this).removeClass("show")}))}))}));

@@ -1,18 +1,13 @@
 .landing-page {
-	background-image: url("../images/bg-dark.jpg");
-	background-size: cover;
-	height: 100vh;
 	padding: 25px 0;
 
 	.logo {
 		position: relative;
 		width: 35px;
-		height: auto;
 		overflow: hidden;
-		display: inline-block;
 
 		&::before {
-			content: '';
+			content: "";
 			display: block;
 			padding-top: 131.4%;
 		}
@@ -28,17 +23,75 @@
 	}
 
 	nav {
-		float: right;
+		position: relative;
 
-		ul {
+		.nav-btn {
+			background: none;
+			border: none;
+			width: 40px;
+			display: none;
+
+			@media (max-width: 991.98px) {
+				display: block;
+			}
+
+			.btn-line {
+				display: block;
+				height: 3px;
+				margin: 5px 0;
+				background-color: #fff;
+			}
+		}
+
+		.nav-list {
 			list-style: none;
-			margin-top: 1rem; // Override On Bootstrap Reboot
-			
-			li {
+			margin: 0;
+			padding: 0;
+
+			@media (max-width: 991.98px) {
+				position: absolute;
+				top: 60px;
+				right: 0;
+				width: 200px;
+			}
+
+			.list-item {
 				display: inline-block;
 				font-size: 14px;
 				color: #fff;
 				margin-left: 60px;
+
+				@media (max-width: 991.98px) {
+					display: block;
+					margin: 0;
+					background-color: #333;
+					margin-bottom: 15px;
+					border-radius: 10px;
+					position: relative;
+					right: -200px;
+					visibility: hidden;
+					opacity: 0;
+					transition: right 0.3s ease,
+								visibility 0.3s ease,
+								opacity 0.3s ease;
+
+					// Transition Delay For Every List Item
+					$delay: 0.1;
+					@for $i from 1 to 7 {
+						&:nth-child(#{$i + 1}) {transition-delay: #{$delay * $i}s;}
+					}
+
+					&.show {
+						right: 0;
+						visibility: visible;
+						opacity: 1;
+					}
+
+					&:hover,
+					&:focus {
+						background-color: #121212;
+					}
+				}
 
 				&:first-child {
 					margin-left: 0;
@@ -51,17 +104,27 @@
 						margin-left: 5px;
 						vertical-align: middle;
 					}
+
+					@media (max-width: 991.98px) {
+						margin-left: 0;
+						margin-bottom: 0;
+					}
 				}
-				
+
 				a {
-					color: inherit;
 					text-decoration: none;
 
 					&,
 					&:hover,
 					&:focus {
 						color: inherit;
-					}	
+					}
+
+					@media (max-width: 991.98px) {
+						text-align: center;
+						display: block;
+						padding: 15px 10px;
+					}
 				}
 			}
 		}

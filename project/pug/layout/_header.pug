@@ -1,14 +1,22 @@
 header.landing-page
 	.container
-		.logo
-			img(src="images/logo.png" alt="Logo" draggable="false")
+		.row.justify-content-between.align-items-center
+			.col-1
+				.logo
+					img(src="images/logo.png" alt="Logo" draggable="false")
 
-		nav
-			ul
-				li #[a(href="#") Home]
-				li #[a(href="#") Pages]
-				li #[a(href="#") Portfolio]
-				li #[a(href="#") Blog]
-				li #[a(href="#") Elements]
-				li #[a(href="#") Shop]
-				li #[a(href="#") Reservation <i class="fas fa-angle-right icon"></i>]
+			.col-auto
+				nav
+					button.nav-btn
+						span.btn-line
+						span.btn-line
+						span.btn-line
+
+					ul.nav-list
+						li.list-item #[a(href="#") Home]
+						li.list-item #[a(href="#") Pages]
+						li.list-item #[a(href="#") Portfolio]
+						li.list-item #[a(href="#") Blog]
+						li.list-item #[a(href="#") Elements]
+						li.list-item #[a(href="#") Shop]
+						li.list-item #[a(href="#") Reservation <i class="fas fa-angle-right icon"></i>]
