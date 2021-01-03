@@ -1,14 +1,17 @@
 $(function () {
-	// Nav Btn
+	// Navbar
 	let clicked = false,
+		navBtn = $(".nav-btn");
 		navItems = $(".list-item");
 
-	$(".nav-btn").on("click", function () {
+	navBtn.on("click", function () {
 		if (!clicked) {
 			clicked = true;
 
+			$(this).toggleClass("show");
+
 			navItems.each(function () {
-				$(this).toggleClass("show")
+				$(this).toggleClass("show");
 			});
 
 			setTimeout(() => {
@@ -19,9 +22,45 @@ $(function () {
 
 	$(window).on("resize", function () {
 		if (navItems.hasClass("show")) {
+			navBtn.removeClass("show");
+
 			navItems.each(function () {
 				$(this).removeClass("show");
 			});
+		}
+	});
+
+	// Navbar Scroll
+	let navbar = $(".navbar");
+
+	if ($("html, body").scrollTop() >= 100) {
+		navbar.addClass("scroll");
+	} else {
+		navbar.removeClass("scroll");
+	}
+
+	$(window).on("scroll", function () {
+		if ($("html, body").scrollTop() >= 100) {
+			navbar.addClass("scroll");
+		} else {
+			navbar.removeClass("scroll");
+		}
+	});
+
+	// Close Navbar When Click Anywhere Out Of The Nav List
+	$(".nav-list, .nav-btn").on("click", function (e) {
+		e.stopPropagation();
+	});
+
+	$(document).on("click", function (e) {
+		if (navItems.hasClass("show")) {
+			if (e.target !== $(".nav-list") && e.target !== navBtn) {
+				navItems.each(function () {
+					$(this).removeClass("show");
+				});
+
+				navBtn.removeClass("show");
+			}
 		}
 	});
 });

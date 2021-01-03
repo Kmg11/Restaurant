@@ -2,8 +2,11 @@
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
-// Start Main Rules
+// Base
 @import "base/base";
 
-// Header
-@import "layout/header.scss";
+// Navbar
+@import "layout/navbar";
+
+// Landing Page
+@import "layout/landing-page";
