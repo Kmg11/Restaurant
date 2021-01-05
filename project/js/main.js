@@ -10,6 +10,8 @@ $(function () {
 
 			$(this).toggleClass("show");
 
+			$(".nav-list").toggleClass("show");
+
 			navItems.each(function () {
 				$(this).toggleClass("show");
 			});
@@ -23,6 +25,8 @@ $(function () {
 	$(window).on("resize", function () {
 		if (navItems.hasClass("show")) {
 			navBtn.removeClass("show");
+
+			$(".nav-list").removeClass("show");
 
 			navItems.each(function () {
 				$(this).removeClass("show");
@@ -55,11 +59,13 @@ $(function () {
 	$(document).on("click", function (e) {
 		if (navItems.hasClass("show")) {
 			if (e.target !== $(".nav-list") && e.target !== navBtn) {
+				navBtn.removeClass("show");
+
+				$(".nav-list").removeClass("show");
+
 				navItems.each(function () {
 					$(this).removeClass("show");
 				});
-
-				navBtn.removeClass("show");
 			}
 		}
 	});

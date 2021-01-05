@@ -4,6 +4,7 @@
 	left: 0;
 	width: 100%;
 	padding: 25px 0;
+	z-index: 1000;
 	transition: all 0.3s ease-in-out;
 
 	.logo {
@@ -78,8 +79,13 @@
 			@media (max-width: 991.98px) {
 				position: absolute;
 				top: 60px;
-				right: 0;
 				width: 200px;
+				right: -300px;
+				transition: all 0.3s ease-in-out;
+
+				&.show {
+					right: 0;
+				}
 			}
 
 			.list-item {
@@ -123,7 +129,7 @@
 					border-radius: 10px;
 					overflow: hidden;
 					position: relative;
-					right: -200px;
+					right: -300px;
 					visibility: hidden;
 					opacity: 0;
 					transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out,
@@ -189,7 +195,7 @@
 	&.scroll {
 		padding: 20px 0;
 		background-color: #fff;
-		box-shadow: 0 -4px 20px -5px rgba(0, 0, 0, 0.8);
+		box-shadow: 0 -4px 20px -5px rgba(#000, 0.8);
 
 		.logo {
 			img {
@@ -207,6 +213,10 @@
 			.nav-list {
 				.list-item {
 					a {
+						@media (min-width: 992px) {
+							color: #333;
+						}
+
 						@media (min-width: 992px) {
 							&::before {
 								background-color: #333;
