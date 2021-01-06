@@ -21,15 +21,14 @@
 		min-height: 500px;
 		height: 100vh;
 		max-height: 900px;
-		color: #fff;
 		position: relative;
 
-		header {
+		.section-title {
 			text-align: right;
 
-			h1 {
+			.section-header {
 				font-size: 60px;
-				line-height: 1;
+				color: #FFF;
 				position: absolute;
 				top: 50%;
 				right: 0;
@@ -42,17 +41,8 @@
 					text-align: center;
 				}
 
-				span {
-					display: block;
-
-					&.small {
-						text-transform: uppercase;
-						letter-spacing: 10px;
-						font-size: 12px;
-						font-weight: 400;
-						color: #CCC;
-						margin-bottom: 20px;
-					}
+				.small {
+					color: #CCC;
 				}
 			}
 		}
@@ -106,7 +96,7 @@
 
 					&.number {
 						font-size: 25px;
-						color: #fff;
+						color: #FFF;
 						margin-bottom: 20px;
 					}
 
@@ -115,7 +105,7 @@
 						text-transform: uppercase;
 
 						span {
-							color: #fff;
+							color: #FFF;
 						}
 					}
 				}

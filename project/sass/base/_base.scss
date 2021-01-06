@@ -8,6 +8,60 @@ button:focus {
 	outline: none;
 }
 
+a {
+	text-decoration: none;
+}
+
+// Start Custome Framework
+
 .playfair-font {
 	font-family: 'Playfair Display', serif;
 }
+
+.section-style {
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
+.section-title {
+	.section-header {
+		font-size: 40px;
+		font-weight: bold;
+		line-height: 1;
+		color: #333;
+
+		span {
+			display: block;
+			font-weight: bold;
+
+			&.small {
+				text-transform: uppercase;
+				letter-spacing: 10px;
+				font-size: 12px;
+				color: #999;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+.custom-paragraph {
+	color: #999;
+	font-size: 14px;
+	line-height: 2;
+}
+
+.author {
+	margin-top: 45px;
+
+	.name {
+		color: #000;
+		font-weight: 600;
+	}
+
+	.jop {
+		font-style: italic;
+	}
+}
+
+// End Custome Framework

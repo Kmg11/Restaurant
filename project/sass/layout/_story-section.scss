@@ -1,0 +1,69 @@
+.story-section {
+	background-color: #fff;
+
+	.section-body {
+		padding-right: 20px;
+		p {
+			&:first-of-type {
+				margin-top: 50px;
+			}
+		}
+
+		a {
+			display: inline-block;
+			color: #333;
+			margin-top: 80px;
+			border: 1px solid #aaa;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 14px;
+			padding: 10px 20px;
+			transition: background-color 0.3s ease-in-out;
+
+			&:hover {
+				background-color: #f9f9f9;
+			}
+		}
+	}
+
+	.video {
+		position: relative;
+		float: right;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -30px;
+			left: -60px;
+			width: 100%;
+			height: 100%;
+			background-image: url("../images/dots.png");
+			background-repeat: repeat;
+		}
+
+		.controls {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 20px 15px 15px;
+			background: linear-gradient(to top, #000, transparent);
+
+			button {
+				background: none;
+				border: none;
+				color: #FFF;
+				font-size: 12px;
+				text-transform: uppercase;
+
+				.icon {
+					font-size: 10px;
+					margin-left: 8px;
+					position: relative;
+					top: -1.5px;
+				}
+			}
+		}
+	}
+}
