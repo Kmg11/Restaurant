@@ -1,8 +1,21 @@
 .story-section {
 	background-color: #fff;
 
+	&.section-style {
+		@media (min-width: 768px) {
+			padding-top: 200px;
+		}
+	}
+
 	.section-body {
 		padding-right: 20px;
+		
+		@media (max-width: 767.98px) {
+			padding-right: 0;
+			padding-bottom: 20px;
+			text-align: center;
+		}
+
 		p {
 			&:first-of-type {
 				margin-top: 50px;
@@ -23,6 +36,12 @@
 			&:hover {
 				background-color: #f9f9f9;
 			}
+
+			@media (max-width: 767.98px) {
+				margin-top: 20px;
+				font-size: 12px;
+				padding: 8px 16px;
+			}
 		}
 	}
 
@@ -30,12 +49,20 @@
 		position: relative;
 		float: right;
 
+		.img {
+			&, img {
+				@media (max-width: 991.98px) {
+					width: 100%;
+				}
+			}
+		}
+
 		&::before {
 			content: '';
 			display: block;
 			position: absolute;
 			bottom: -30px;
-			left: -60px;
+			left: -30px;
 			width: 100%;
 			height: 100%;
 			background-image: url("../images/dots.png");

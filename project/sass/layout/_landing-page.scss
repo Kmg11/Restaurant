@@ -76,12 +76,10 @@
 
 			.details {
 				position: absolute;
-				bottom: 25px;
+				bottom: 0;
 				right: 0;
-
-				@media (max-width: 575.98px) {
-					bottom: 15px;
-				}
+				padding-bottom: 15px;
+				padding-right: 15px;
 
 				p {
 					margin-bottom: 0;
