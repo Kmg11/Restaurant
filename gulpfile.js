@@ -35,7 +35,7 @@ function js() {
 }
 
 function images() {
-	return src("./project/images/*.*")
+	return src("./project/images/**/*.*")
 		.pipe(dest("./dist/images"))
 }
 

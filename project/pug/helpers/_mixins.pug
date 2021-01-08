@@ -1,0 +1,32 @@
+//- Section Header
+mixin sectionHeader(small, text, span)
+	header.section-title
+		h2.section-header
+			span.small= small
+			span.playfair-font= text
+			if span
+				span= span
+
+//- Author
+mixin author(name, jop)
+	p.author.custom-paragraph
+		span.name= name
+		span.jop  - #{jop}
+
+//- Special Menu Card
+mixin specialMenuCard(img, price, title, desc)
+	.col-12.col-sm-6.col-lg-4
+		.card.clickable-item
+			a(href="#", class="clickable-anchor")
+			
+			.card-image
+				.ratio-holder
+					.ratio.menu-ratio
+					.ratio-content
+						img(src=img, alt=title, draggable="false")
+
+				span.price $ #{price}
+
+			.card-content
+				h4.card-title= title
+				p.card-desc.custom-paragraph= desc

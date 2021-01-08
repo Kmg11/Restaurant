@@ -1,0 +1,86 @@
+.special-menu {
+	text-align: center;
+	background-color: #ffff;
+	background-image: url("../images/pattern.jpg");
+	background-repeat: repeat;
+
+	.section-body {
+		.cards {
+			padding-top: 50px;
+			padding-bottom: 60px;
+
+			.card {
+				background-color: #fff;
+				padding: 15px;
+
+				@media (max-width: 991px) {
+					margin-bottom: 20px;
+				}
+				
+				.card-image {
+					position: relative;
+					margin-bottom: 60px;
+
+					.ratio-holder {
+						position: relative;
+						overflow: hidden;
+
+						.ratio {
+							padding-top: 100%;
+
+							&.menu-ratio {
+								padding-top: 70%;
+							}
+						}
+						
+						.ratio-content {
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+
+							img {
+								width: 100%;
+								min-height: 100%;
+							}
+						}
+					}
+
+					.price {
+						display: block;
+
+						$w-h: 90px;
+						width: $w-h;
+						height: $w-h;
+						line-height: $w-h;
+
+						position: absolute;
+						bottom: -($w-h / 2);
+						left: 50%;
+						transform: translateX(-50%);
+						background-color: #fff;
+						border-radius: 50%;
+						font-size: 30px;
+						box-shadow: 0 0 0 8px rgba(#fff, 0.5);
+					}
+				}
+
+				.card-content {
+					.card-desc {
+						padding-right: 20px;
+						padding-left: 20px;
+					}
+				}
+			}
+		}
+
+		.view-more {
+			border: none;
+			background: none;
+			color: #333;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+}

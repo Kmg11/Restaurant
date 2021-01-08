@@ -15,6 +15,9 @@ html(lang="en")
 		//- Main Css File
 		link(rel="stylesheet", href="css/main.css")
 	body
+		//- Mixins
+		include helpers/_mixins.pug
+
 		//- Navbar
 		include layout/_navbar.pug
 
@@ -23,6 +26,9 @@ html(lang="en")
 		
 		//- Our Story
 		include layout/_story-section.pug
+
+		//- Special Menu
+		include layout/_special-menu.pug
 
 		//- Scripts
 		script(src="js/vendors/jquery.js")

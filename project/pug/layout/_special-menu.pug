@@ -1,0 +1,16 @@
+section.special-menu.section-style
+	.container
+		+sectionHeader("Special Menu", "Delicious Flavour Of Autumn")
+
+		.section-body
+			.cards
+				.row
+					- var imgs = ["images/menu/img-1.jpg", "images/menu/img-2.jpg", "images/menu/img-3.jpg"]
+					- var prices = ["25", "42", "30"]
+					- var titles = ["Super BBQ Grill No Smoke", "Queen Of Autumn", "Royal Liver Fried"]
+					- var descs = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, vitae?"]
+
+					- for (var i = 0; i < imgs.length; i++)
+						+specialMenuCard(imgs[i], prices[i], titles[i], descs[0])
+
+			a(href="#", class="view-more playfair-font") View Full Menu
