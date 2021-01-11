@@ -15,18 +15,17 @@ mixin author(name, jop)
 
 //- Special Menu Card
 mixin specialMenuCard(img, price, title, desc)
-	.col-12.col-sm-6.col-lg-4
-		.card.clickable-item
-			a(href="#", class="clickable-anchor")
-			
-			.card-image
-				.ratio-holder
-					.ratio.menu-ratio
-					.ratio-content
-						img(src=img, alt=title, draggable="false")
+	.card.clickable-item.slider-item
+		a(href="#" class="clickable-anchor")
 
-				span.price $ #{price}
+		.card-image
+			.ratio-holder
+				.ratio.menu-ratio
+				.ratio-content
+					img(src=img, alt=title, draggable="false")
 
-			.card-content
-				h4.card-title= title
-				p.card-desc.custom-paragraph= desc
+			span.price $ #{price}
+
+		.card-content
+			h4.card-title= title
+			p.card-desc.custom-paragraph= desc
