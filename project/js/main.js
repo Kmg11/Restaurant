@@ -76,131 +76,247 @@ $(function () {
 	// End Navbar
 	// Start Menu Slider
 
-	let // Select Elements
-		$sliderContainer = $(".slider-container"),
-		$slider = $sliderContainer.find(".slider"),
-		$sliderBanner = $slider.find(".slider-banner"),
-		$sliderItems = $sliderBanner.find(".slider-item"),
-		$nextBtn = $sliderContainer.find(".next"),
-		$prevBtn = $sliderContainer.find(".prev"),
+	(function menuSLider() {
+		let // Select Elements
+			$sliderContainer = $(".menu-slider"),
+			$slider = $sliderContainer.find(".slider"),
+			$sliderBanner = $slider.find(".slider-banner"),
+			$sliderItems = $sliderBanner.find(".slider-item"),
+			$nextBtn = $sliderContainer.find(".next"),
+			$prevBtn = $sliderContainer.find(".prev"),
 
-		// Needs
-		itemsLength = $sliderItems.length,
+			// Needs
+			itemsLength = $sliderItems.length,
 
-		sliderClicked = false,
-		defaultActiveSlides = 3,
-		activeSlides = defaultActiveSlides,
-		itemMove = 0,
+			sliderClicked = false,
+			defaultActiveSlides = 3,
+			activeSlides = defaultActiveSlides,
+			itemMove = 0,
 
-		itemMargin = parseInt($sliderItems.css("marginLeft")) * 2,
-		itemWidth,
-		slideWidth;
+			itemMargin = parseInt($sliderItems.css("marginLeft")) * 2,
+			itemWidth,
+			slideWidth;
 
-	function handleLeft() {
-		return -(slideWidth * itemMove);
-	}
-
-	function responsiveSlide() {
-		activeSlides -= defaultActiveSlides;
-
-		if ($(window).width() >= 768 && $(window).width() <= 991) {
-			defaultActiveSlides = 2;
-		} else if ($(window).width() <= 767) {
-			defaultActiveSlides = 1;
-		} else {
-			defaultActiveSlides = 3
+		function handleLeft() {
+			return -(slideWidth * itemMove);
 		}
-		
-		activeSlides += defaultActiveSlides;
 
-		itemWidth = ($slider.outerWidth() - (itemMargin * defaultActiveSlides)) / defaultActiveSlides;
+		function responsiveSlide() {
+			activeSlides -= defaultActiveSlides;
 
-		$sliderItems.outerWidth(itemWidth);
+			if ($(window).width() >= 768 && $(window).width() <= 991) {
+				defaultActiveSlides = 2;
+			} else if ($(window).width() <= 767) {
+				defaultActiveSlides = 1;
+			} else {
+				defaultActiveSlides = 3
+			}
 
-		slideWidth = itemWidth + itemMargin;
+			activeSlides += defaultActiveSlides;
 
-		$sliderBanner.css("left", handleLeft());
+			itemWidth = ($slider.outerWidth() - (itemMargin * defaultActiveSlides)) / defaultActiveSlides;
 
-		let totalItemsWidth = itemWidth * itemsLength,
-			totalItemsMargin = itemMargin * itemsLength,
-			sliderBannerWidth = totalItemsWidth + totalItemsMargin;
+			$sliderItems.outerWidth(itemWidth);
 
-		$sliderBanner.width(sliderBannerWidth);
-	}
+			slideWidth = itemWidth + itemMargin;
 
-	responsiveSlide();
+			$sliderBanner.css("left", handleLeft());
 
-	$(window).on("resize", function () {
+			let totalItemsWidth = itemWidth * itemsLength,
+				totalItemsMargin = itemMargin * itemsLength,
+				sliderBannerWidth = totalItemsWidth + totalItemsMargin;
+
+			$sliderBanner.width(sliderBannerWidth);
+		}
+
 		responsiveSlide();
+
+		$(window).on("resize", function () {
+			responsiveSlide();
+			checkStatus();
+		});
+
+		function checkStatus() {
+			if (activeSlides == itemsLength) {
+				$nextBtn.addClass("disabled");
+			} else {
+				if ($nextBtn.hasClass("disabled")) {
+					$nextBtn.removeClass("disabled");
+				}
+			}
+
+			if (activeSlides == defaultActiveSlides) {
+				$prevBtn.addClass("disabled");
+			} else {
+				if ($prevBtn.hasClass("disabled")) {
+					$prevBtn.removeClass("disabled");
+				}
+			}
+		}
+
 		checkStatus();
-	});
 
-	function checkStatus() {
-		if (activeSlides == itemsLength) {
-			$nextBtn.addClass("disabled");
-		} else {
-			if ($nextBtn.hasClass("disabled")) {
-				$nextBtn.removeClass("disabled");
+		$nextBtn.on("click", function nextItem() {
+			if (!sliderClicked) {
+				if (activeSlides !== itemsLength) {
+					sliderClicked = true;
+
+					itemMove++;
+					activeSlides++;
+
+					$sliderBanner.animate({
+						left: handleLeft()
+					}, 400);
+
+					setTimeout(() => {
+						sliderClicked = false;
+					}, 400);
+
+					checkStatus();
+				}
 			}
-		}
+		});
 
-		if (activeSlides == defaultActiveSlides) {
-			$prevBtn.addClass("disabled");
-		} else {
-			if ($prevBtn.hasClass("disabled")) {
-				$prevBtn.removeClass("disabled");
+		$prevBtn.on("click", function prevItem() {
+			if (!sliderClicked) {
+				if (activeSlides > defaultActiveSlides) {
+					sliderClicked = true;
+
+					itemMove--;
+					activeSlides--;
+
+					$sliderBanner.animate({
+						left: handleLeft()
+					}, 400);
+
+					setTimeout(() => {
+						sliderClicked = false;
+					}, 400);
+
+					checkStatus();
+				}
 			}
-		}
-	}
+		});
 
-	checkStatus();
-
-	$nextBtn.on("click", function nextItem() {
-		if (!sliderClicked) {
-			if (activeSlides !== itemsLength) {
-				sliderClicked = true;
-
-				itemMove++;
-				activeSlides++;
-
-				$sliderBanner.animate({
-					left: handleLeft()
-				}, 400);
-
-				setTimeout(() => {
-					sliderClicked = false;
-				}, 400);
-
-				checkStatus();
-			}
-		}
-	});
-
-	$prevBtn.on("click", function prevItem() {
-		if (!sliderClicked) {
-			if (activeSlides > defaultActiveSlides) {
-				sliderClicked = true;
-
-				itemMove--;
-				activeSlides--;
-
-				$sliderBanner.animate({
-					left: handleLeft()
-				}, 400);
-
-				setTimeout(() => {
-					sliderClicked = false;
-				}, 400);
-
-				checkStatus();
-			}
-		}
-	});
-
-	/*
-		- Problem When Get Last Item In Small Screen
-		- Small Screen Css Responsive
-	*/
+		/*
+			- Problem When Get Last Item In Small Screen
+			- Small Screen Css Responsive
+		*/
+	}());
 
 	// End Menu Slider
+	// Start Cheif Slider
+
+	(function chiefSLider() {
+		let // Select Elements
+			$sliderContainer = $(".chief-slider"),
+			$slider = $sliderContainer.find(".slider"),
+			$sliderBanner = $slider.find(".slider-banner"),
+			$sliderItems = $sliderBanner.find(".slider-item"),
+			$nextBtn = $sliderContainer.find(".next"),
+			$prevBtn = $sliderContainer.find(".prev"),
+
+			// Needs
+			itemsLength = $sliderItems.length,
+
+			sliderClicked = false,
+			defaultActiveSlides = 1,
+			activeSlides = defaultActiveSlides,
+			itemMove = 0,
+
+			itemMargin = parseInt($sliderItems.css("marginLeft")) * 2,
+			itemWidth,
+			slideWidth;
+
+		function handleLeft() {
+			return -(slideWidth * itemMove);
+		}
+
+		function responsiveSlide() {
+			itemWidth = ($slider.outerWidth() - (itemMargin * defaultActiveSlides)) / defaultActiveSlides;
+
+			$sliderItems.outerWidth(itemWidth);
+
+			slideWidth = itemWidth + itemMargin;
+
+			$sliderBanner.css("left", handleLeft());
+
+			let totalItemsWidth = itemWidth * itemsLength,
+				totalItemsMargin = itemMargin * itemsLength,
+				sliderBannerWidth = totalItemsWidth + totalItemsMargin;
+
+			$sliderBanner.width(sliderBannerWidth);
+		}
+
+		responsiveSlide();
+
+		$(window).on("resize", function () {
+			responsiveSlide();
+			checkStatus();
+		});
+
+		function checkStatus() {
+			if (activeSlides == itemsLength) {
+				$nextBtn.addClass("disabled");
+			} else {
+				if ($nextBtn.hasClass("disabled")) {
+					$nextBtn.removeClass("disabled");
+				}
+			}
+
+			if (activeSlides == defaultActiveSlides) {
+				$prevBtn.addClass("disabled");
+			} else {
+				if ($prevBtn.hasClass("disabled")) {
+					$prevBtn.removeClass("disabled");
+				}
+			}
+		}
+
+		checkStatus();
+
+		$nextBtn.on("click", function nextItem() {
+			if (!sliderClicked) {
+				if (activeSlides !== itemsLength) {
+					sliderClicked = true;
+
+					itemMove++;
+					activeSlides++;
+
+					$sliderBanner.animate({
+						left: handleLeft()
+					}, 400);
+
+					setTimeout(() => {
+						sliderClicked = false;
+					}, 400);
+
+					checkStatus();
+				}
+			}
+		});
+
+		$prevBtn.on("click", function prevItem() {
+			if (!sliderClicked) {
+				if (activeSlides > defaultActiveSlides) {
+					sliderClicked = true;
+
+					itemMove--;
+					activeSlides--;
+
+					$sliderBanner.animate({
+						left: handleLeft()
+					}, 400);
+
+					setTimeout(() => {
+						sliderClicked = false;
+					}, 400);
+
+					checkStatus();
+				}
+			}
+		});
+	}());
+
+	// End Chief Slider
 });

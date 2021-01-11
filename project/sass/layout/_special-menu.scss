@@ -9,10 +9,14 @@
 			padding-top: 50px;
 			padding-bottom: 60px;
 
-			.slider-container {
+			.menu-slider {
 				position: relative;
 				padding: 0 30px;
 				overflow: hidden;
+
+				@media (max-width: 575.98px) {
+					padding: 0 20px;
+				}
 
 				.slider {
 					overflow: hidden;
@@ -32,7 +36,7 @@
 							float: left;
 
 							@media (max-width: 575.98px) {
-								padding: 0 10px;
+								padding: 10px;
 							}		
 
 							.card-image {

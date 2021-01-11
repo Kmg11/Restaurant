@@ -1,0 +1,63 @@
+.review-section {
+	text-align: right;
+
+	@media (max-width: 767.98px) {
+		text-align: center;
+
+		.chief-image {
+			img {
+				width: 80%;
+			}
+		}
+	}
+
+	.section-title {
+		margin-top: 50px;
+
+		@media (max-width: 767.98px) {
+			margin-top: 0;
+		}
+	}
+
+	.section-body {
+		.chief-slider {
+			.slider {
+				position: relative;
+				overflow: hidden;
+
+				.slider-banner {
+					position: relative;
+					overflow: hidden;
+
+					.chief-review {
+						float: left;
+	
+						.review-head {
+							margin-top: 40px;
+							margin-bottom: 20px;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+
+			.slider-arrows {
+				margin-top: 40px;
+
+				.arrow {
+					border: none;
+					background: none;
+					transition: opacity 0.3s ease-in-out;
+
+					&.prevBtn {
+						margin-right: 20px;
+					}
+
+					&.disabled {
+						opacity: 0.4;
+					}
+				}
+			}
+		}
+	}
+}
