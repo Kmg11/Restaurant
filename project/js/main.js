@@ -102,6 +102,7 @@ $(function () {
 
 	function responsiveSlide() {
 		activeSlides -= defaultActiveSlides;
+
 		if ($(window).width() >= 768 && $(window).width() <= 991) {
 			defaultActiveSlides = 2;
 		} else if ($(window).width() <= 767) {
@@ -109,6 +110,7 @@ $(function () {
 		} else {
 			defaultActiveSlides = 3
 		}
+		
 		activeSlides += defaultActiveSlides;
 
 		itemWidth = ($slider.outerWidth() - (itemMargin * defaultActiveSlides)) / defaultActiveSlides;
