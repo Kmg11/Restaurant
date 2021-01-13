@@ -43,30 +43,8 @@
 								position: relative;
 								margin-bottom: 60px;
 
-								.ratio-holder {
-									position: relative;
-									overflow: hidden;
-
-									.ratio {
-										padding-top: 100%;
-
-										&.menu-ratio {
-											padding-top: 70%;
-										}
-									}
-
-									.ratio-content {
-										position: absolute;
-										top: 0;
-										bottom: 0;
-										left: 0;
-										right: 0;
-
-										img {
-											width: 100%;
-											min-height: 100%;
-										}
-									}
+								.menu-ratio {
+									padding-top: 70%;
 								}
 
 								.price {

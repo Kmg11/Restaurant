@@ -1,7 +1,32 @@
+// Aspect Ratio
+.ratio-holder {
+	position: relative;
+	overflow: hidden;
+
+	.ratio {
+		padding-top: 100%;
+	}
+
+	.ratio-content {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		img {
+			width: 100%;
+			min-height: 100%;
+		}
+	}
+}
+
+// Font
 .playfair-font {
 	font-family: 'Playfair Display', serif;
 }
 
+// Sections Style
 .section-style {
 	padding-top: 80px;
 	padding-bottom: 80px;
@@ -12,6 +37,7 @@
 	}
 }
 
+// Sections Title
 .section-title {
 	.section-header {
 		font-size: 40px;
@@ -45,6 +71,7 @@
 	}
 }
 
+// Custome Paragraph
 .custom-paragraph {
 	color: #999;
 	font-size: 14px;
@@ -55,6 +82,7 @@
 	}
 }
 
+// Autho
 .author {
 	margin-top: 45px;
 

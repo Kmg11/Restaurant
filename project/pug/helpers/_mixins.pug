@@ -1,3 +1,10 @@
+//- Aspect Ratio
+mixin ratio(src, alt, ratioClass)
+	.ratio-holder
+		div(class="ratio " + ratioClass)
+		.ratio-content
+			img(src=src, alt=alt, draggable="false")
+
 //- Section Header
 mixin sectionHeader(small, text, span)
 	header.section-title
@@ -19,10 +26,7 @@ mixin specialMenuCard(img, price, title, desc)
 		a(href="#" class="clickable-anchor")
 
 		.card-image
-			.ratio-holder
-				.ratio.menu-ratio
-				.ratio-content
-					img(src=img, alt=title, draggable="false")
+			+ratio(img, title, "menu-ratio")
 
 			span.price $ #{price}
 
