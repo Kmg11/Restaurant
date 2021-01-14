@@ -1,3 +1,20 @@
+// Font
+.playfair-font {
+	font-family: 'Playfair Display', serif;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
 // Aspect Ratio
 .ratio-holder {
 	position: relative;
@@ -19,11 +36,6 @@
 			min-height: 100%;
 		}
 	}
-}
-
-// Font
-.playfair-font {
-	font-family: 'Playfair Display', serif;
 }
 
 // Sections Style
@@ -97,5 +109,19 @@
 
 	.jop {
 		font-style: italic;
+	}
+}
+
+// Clickable-item
+.clickable-item {
+	position: relative;
+
+	.clickable-anchor {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 }

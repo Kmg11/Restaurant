@@ -104,7 +104,7 @@
 		z-index: 1;
 
 		@media (min-width: $grid-min-md) {
-			top: -50px;
+			margin-top: -50px;
 		}
 		
 		@media (max-width: $grid-max-sm) {
