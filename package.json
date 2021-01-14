@@ -1,7 +1,7 @@
 {
-  "name": "food_website",
+  "name": "restaurant",
   "version": "1.0.0",
-  "description": "ZOhdi First Project [Food Website]",
+  "description": "Let's Code Project One [Restaurant] From [Mohamed ZOhdi]",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,20 @@
     "url": "git+https://github.com/Kmg11/Food_Website.git"
   },
   "keywords": [
-    "Food"
+    "Restaurant",
+    "Food",
+    "Website",
+    "Mohaned Zohdi",
+    "SPA",
+    "Html",
+    "Css",
+    "jQuery",
+    "Bootstrap Grid",
+    "Sass",
+    "Pugjs",
+    "Gulpjs",
+    "Git",
+    "Github"
   ],
   "author": "Kirolos Mahfouz",
   "license": "ISC",
