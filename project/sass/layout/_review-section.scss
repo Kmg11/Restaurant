@@ -1,7 +1,7 @@
 .review-section {
 	text-align: right;
 
-	@media (max-width: 767.98px) {
+	@media (max-width: $grid-max-sm) {
 		text-align: center;
 
 		.chief-image {
@@ -14,7 +14,7 @@
 	.section-title {
 		margin-top: 50px;
 
-		@media (max-width: 767.98px) {
+		@media (max-width: $grid-max-sm) {
 			margin-top: 0;
 		}
 	}
@@ -45,8 +45,6 @@
 				margin-top: 40px;
 
 				.arrow {
-					border: none;
-					background: none;
 					transition: opacity 0.3s ease-in-out;
 
 					&.prevBtn {

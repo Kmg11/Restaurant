@@ -2,7 +2,7 @@
 	background-color: #fff;
 
 	&.section-style {
-		@media (min-width: 768px) {
+		@media (min-width: $grid-min-md) {
 			padding-top: 200px;
 		}
 	}
@@ -10,7 +10,7 @@
 	.section-body {
 		padding-right: 20px;
 		
-		@media (max-width: 767.98px) {
+		@media (max-width: $grid-max-sm) {
 			padding-right: 0;
 			padding-bottom: 20px;
 			text-align: center;
@@ -37,7 +37,7 @@
 				background-color: #f9f9f9;
 			}
 
-			@media (max-width: 767.98px) {
+			@media (max-width: $grid-max-sm) {
 				margin-top: 20px;
 				font-size: 12px;
 				padding: 8px 16px;
@@ -51,7 +51,7 @@
 
 		.img {
 			&, img {
-				@media (max-width: 991.98px) {
+				@media (max-width: $grid-max-md) {
 					width: 100%;
 				}
 			}
@@ -78,8 +78,6 @@
 			background: linear-gradient(to top, #000, transparent);
 
 			button {
-				background: none;
-				border: none;
 				color: #FFF;
 				font-size: 12px;
 				text-transform: uppercase;

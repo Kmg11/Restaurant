@@ -1,4 +1,5 @@
-// Font
+// Start Small Classes
+
 .playfair-font {
 	font-family: 'Playfair Display', serif;
 }
@@ -15,7 +16,41 @@
 	text-align: right;
 }
 
-// Aspect Ratio
+.custom-paragraph {
+	color: #999;
+	font-size: 14px;
+	line-height: 1.8;
+
+	@media (max-width: 767.98px) {
+		text-align: center;
+	}
+}
+
+// End Small Classes
+// Start Components [Bit Classes}
+
+.logo {
+	position: relative;
+	width: 35px;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		display: block;
+		padding-top: 131.4%;
+	}
+
+	img {
+		width: 100%;
+		height: 200%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		transition: all 0.3s ease-in-out;
+	}
+}
+
 .ratio-holder {
 	position: relative;
 	overflow: hidden;
@@ -38,7 +73,6 @@
 	}
 }
 
-// Sections Style
 .section-style {
 	padding-top: 80px;
 	padding-bottom: 80px;
@@ -49,7 +83,6 @@
 	}
 }
 
-// Sections Title
 .section-title {
 	.section-header {
 		font-size: 40px;
@@ -83,18 +116,6 @@
 	}
 }
 
-// Custome Paragraph
-.custom-paragraph {
-	color: #999;
-	font-size: 14px;
-	line-height: 1.8;
-
-	@media (max-width: 767.98px) {
-		text-align: center;
-	}
-}
-
-// Autho
 .author {
 	margin-top: 45px;
 
@@ -112,7 +133,6 @@
 	}
 }
 
-// Clickable-item
 .clickable-item {
 	position: relative;
 
@@ -125,3 +145,5 @@
 		right: 0;
 	}
 }
+
+// End Components [Bit Classes}

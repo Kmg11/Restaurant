@@ -34,7 +34,7 @@
 				right: 0;
 				transform: translateY(-50%);
 
-				@media (max-width: 575.98px) {
+				@media (max-width: $grid-max-xs) {
 					left: 50%;
 					transform: translate(-50%, -50%);
 					font-size: 40px;
@@ -55,7 +55,7 @@
 			text-align: right;
 
 			.img {
-				@media (min-width: 768px) and (max-width: 991.98px) {
+				@media (min-width: $grid-min-md) and (max-width: $grid-max-md) {
 					text-align: left;
 				}
 	
@@ -64,7 +64,7 @@
 					bottom: -100px;
 					filter: drop-shadow(0 0 40px rgba(#000, 0.5));
 	
-					@media (min-width: 768px) and (max-width: 991.98px) {
+					@media (min-width: $grid-min-md) and (max-width: $grid-max-md) {
 						width: 270px;
 					}
 

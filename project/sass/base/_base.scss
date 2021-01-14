@@ -1,24 +1,9 @@
-$grid-max-xs: 575.98px;
-
-$grid-min-sm: 576px;
-$grid-max-sm: 767.98px;
-
-$grid-min-md: 768px;
-$grid-max-md: 991.98px;
-
-$grid-min-lg: 992px;
-$grid-max-lg: 1199.98px;
-
-$grid-min-xl: 1200px;
-
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	overflow-x: hidden;
 }
 
-button:focus {
-	outline: none;
-}
+// Start Resets
 
 a, a:hover, a:focus {
 	text-decoration: none;
@@ -26,4 +11,17 @@ a, a:hover, a:focus {
 
 ul {
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
+
+button {
+	border: none;
+	background: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+// End Resets

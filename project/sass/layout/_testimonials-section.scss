@@ -35,12 +35,12 @@
 			font-weight: bold;
 			padding: 60px 120px 0;
 
-			@media (max-width: 767.98px) {
+			@media (max-width: $grid-max-sm) {
 				font-size: 40px;
 				padding: 50px 40px 0;
 			}
 
-			@media (max-width: 575.98px) {
+			@media (max-width: $grid-max-xs) {
 				font-size: 30px;
 				padding: 50px 20px 0;
 			}
