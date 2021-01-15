@@ -74,11 +74,11 @@ $(function () {
 	});
 
 	// End Navbar
-	// Start Menu Slider
+	// Start Slider
 
-	(function menuSLider() {
+	function slider(sliderClass, itemsToShow, resActiveMd, resActiiveSm) {
 		let // Select Elements
-			$sliderContainer = $(".menu-slider"),
+			$sliderContainer = $(sliderClass),
 			$slider = $sliderContainer.find(".slider"),
 			$sliderBanner = $slider.find(".slider-banner"),
 			$sliderItems = $sliderBanner.find(".slider-item"),
@@ -89,7 +89,7 @@ $(function () {
 			itemsLength = $sliderItems.length,
 
 			sliderClicked = false,
-			defaultActiveSlides = 3,
+			defaultActiveSlides = itemsToShow,
 			activeSlides = defaultActiveSlides,
 			itemMove = 0,
 
@@ -105,11 +105,21 @@ $(function () {
 			activeSlides -= defaultActiveSlides;
 
 			if ($(window).width() >= 768 && $(window).width() <= 991) {
-				defaultActiveSlides = 2;
+				defaultActiveSlides = resActiveMd;
+
+				if (itemMove > itemsLength - resActiveMd) {
+					itemMove--;
+					activeSlides--;
+				}	
 			} else if ($(window).width() <= 767) {
-				defaultActiveSlides = 1;
+				defaultActiveSlides = resActiiveSm;
 			} else {
-				defaultActiveSlides = 3
+				defaultActiveSlides = itemsToShow
+
+				if (itemMove > itemsLength - itemsToShow) {
+					itemMove--;
+					activeSlides--;
+				}
 			}
 
 			activeSlides += defaultActiveSlides;
@@ -137,7 +147,7 @@ $(function () {
 		});
 
 		function checkStatus() {
-			if (activeSlides == itemsLength) {
+			if (activeSlides >= itemsLength) {
 				$nextBtn.addClass("disabled");
 			} else {
 				if ($nextBtn.hasClass("disabled")) {
@@ -158,7 +168,7 @@ $(function () {
 
 		$nextBtn.on("click", function nextItem() {
 			if (!sliderClicked) {
-				if (activeSlides !== itemsLength) {
+				if (activeSlides < itemsLength) {
 					sliderClicked = true;
 
 					itemMove++;
@@ -197,126 +207,10 @@ $(function () {
 				}
 			}
 		});
+	};
 
-		/*
-			- Problem When Get Last Item In Small Screen
-			- Small Screen Css Responsive
-		*/
-	}());
+	slider(".menu-slider", 3, 2, 1);
+	slider(".chief-slider", 1, 1, 1);
 
-	// End Menu Slider
-	// Start Cheif Slider
-
-	(function chiefSLider() {
-		let // Select Elements
-			$sliderContainer = $(".chief-slider"),
-			$slider = $sliderContainer.find(".slider"),
-			$sliderBanner = $slider.find(".slider-banner"),
-			$sliderItems = $sliderBanner.find(".slider-item"),
-			$nextBtn = $sliderContainer.find(".next"),
-			$prevBtn = $sliderContainer.find(".prev"),
-
-			// Needs
-			itemsLength = $sliderItems.length,
-
-			sliderClicked = false,
-			defaultActiveSlides = 1,
-			activeSlides = defaultActiveSlides,
-			itemMove = 0,
-
-			itemMargin = parseInt($sliderItems.css("marginLeft")) * 2,
-			itemWidth,
-			slideWidth;
-
-		function handleLeft() {
-			return -(slideWidth * itemMove);
-		}
-
-		function responsiveSlide() {
-			itemWidth = ($slider.outerWidth() - (itemMargin * defaultActiveSlides)) / defaultActiveSlides;
-
-			$sliderItems.outerWidth(itemWidth);
-
-			slideWidth = itemWidth + itemMargin;
-
-			$sliderBanner.css("left", handleLeft());
-
-			let totalItemsWidth = itemWidth * itemsLength,
-				totalItemsMargin = itemMargin * itemsLength,
-				sliderBannerWidth = totalItemsWidth + totalItemsMargin;
-
-			$sliderBanner.width(sliderBannerWidth);
-		}
-
-		responsiveSlide();
-
-		$(window).on("resize", function () {
-			responsiveSlide();
-			checkStatus();
-		});
-
-		function checkStatus() {
-			if (activeSlides == itemsLength) {
-				$nextBtn.addClass("disabled");
-			} else {
-				if ($nextBtn.hasClass("disabled")) {
-					$nextBtn.removeClass("disabled");
-				}
-			}
-
-			if (activeSlides == defaultActiveSlides) {
-				$prevBtn.addClass("disabled");
-			} else {
-				if ($prevBtn.hasClass("disabled")) {
-					$prevBtn.removeClass("disabled");
-				}
-			}
-		}
-
-		checkStatus();
-
-		$nextBtn.on("click", function nextItem() {
-			if (!sliderClicked) {
-				if (activeSlides !== itemsLength) {
-					sliderClicked = true;
-
-					itemMove++;
-					activeSlides++;
-
-					$sliderBanner.animate({
-						left: handleLeft()
-					}, 400);
-
-					setTimeout(() => {
-						sliderClicked = false;
-					}, 400);
-
-					checkStatus();
-				}
-			}
-		});
-
-		$prevBtn.on("click", function prevItem() {
-			if (!sliderClicked) {
-				if (activeSlides > defaultActiveSlides) {
-					sliderClicked = true;
-
-					itemMove--;
-					activeSlides--;
-
-					$sliderBanner.animate({
-						left: handleLeft()
-					}, 400);
-
-					setTimeout(() => {
-						sliderClicked = false;
-					}, 400);
-
-					checkStatus();
-				}
-			}
-		});
-	}());
-
-	// End Chief Slider
+	// End Slider
 });

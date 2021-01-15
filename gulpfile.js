@@ -1,6 +1,7 @@
 const { watch, series, src, dest } = require('gulp');
 const pug = require("gulp-pug");
 const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require("gulp-sourcemaps");
 const terser = require("gulp-terser");
 
@@ -11,15 +12,16 @@ function html() {
 }
 
 function css() {
-	return src("project/sass/*.scss")
+	return src("project/css/sass/**/*.scss")
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(autoprefixer('last 2 versions'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('./dist/css'));
 }
 
 function cssPlugins() {
-	return src("./project/sass/vendors/*.css")
+	return src("./project/css/vendors/*.css")
 		.pipe(dest("./dist/css/vendors"))
 }
 
@@ -41,7 +43,7 @@ function images() {
 
 function watching() {
 	watch('project/pug/**/*.pug', { ignoreInitial: false }, html);
-	watch('project/sass/**/*.scss', { ignoreInitial: false }, css);
+	watch('project/css/sass/**/*.scss', { ignoreInitial: false }, css);
 	watch('./project/js/**/*.js', { ignoreInitial: false }, js);
 	watch('./project/images/**/*.*', { ignoreInitial: false }, images);
 }

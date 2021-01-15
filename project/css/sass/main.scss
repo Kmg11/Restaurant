@@ -1,9 +1,12 @@
 // Bootstrap [ Reboot - Grid ]
-@import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
-@import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
 // Variables
 @import "helpers/variables";
+
+// Mixins
+@import "helpers/mixins";
 
 // Base
 @import "base/base";

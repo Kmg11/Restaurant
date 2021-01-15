@@ -1,8 +1,5 @@
 .special-menu {
-	text-align: center;
-	background-color: #ffff;
-	background-image: url("../images/pattern.jpg");
-	background-repeat: repeat;
+	@include pattern("../images/pattern.jpg", #f3f3f3);
 
 	.section-body {
 		.cards {

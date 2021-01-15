@@ -1,6 +1,6 @@
 .contact-section {
-	background-image: url("../images/pattern.jpg");
-	background-repeat: round;
+	@include pattern("../images/pattern.jpg", #f3f3f3);
+
 	padding-bottom: 0;
 
 	.section-header {

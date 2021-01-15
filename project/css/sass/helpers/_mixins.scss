@@ -1,0 +1,34 @@
+// Section Background With Overlay
+@mixin bg-img($img, $color, $opacity, $attachment, $position) {
+	background: $color url($img) no-repeat;
+	background-size: cover;
+
+	@if $attachment {
+		background-attachment: $attachment;
+	}
+
+	@if $position {
+		background-position: $position;
+	}
+
+	@if $opacity {
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($color, $opacity);
+		}
+	}
+}
+
+// Pattern
+@mixin pattern($img, $color) {
+	background-color: $color;
+	background-image: url($img);
+	background-repeat: repeat;
+}
