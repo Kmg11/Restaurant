@@ -3,21 +3,15 @@ $(function () {
 	// Start Navbar
 
 	let clicked = false,
-		navBtn = $(".nav-btn"),
-		navList = $(".nav-list"),
-		navItems = $(".list-item");
+		$navbar = $(".navbar"),
+		$nav = $(".main-nav"),
+		$navBtn = $(".nav-btn");
 
-	navBtn.on("click", function () {
+	$navBtn.on("click", function () {
 		if (!clicked) {
 			clicked = true;
 
-			$(this).toggleClass("show");
-
-			navList.toggleClass("show");
-
-			navItems.each(function () {
-				$(this).toggleClass("show");
-			});
+			$nav.toggleClass("show");
 
 			setTimeout(() => {
 				clicked = false;
@@ -26,32 +20,23 @@ $(function () {
 	});
 
 	$(window).on("resize", function () {
-		if (navItems.hasClass("show")) {
-			navBtn.removeClass("show");
-
-			navList.removeClass("show");
-
-			navItems.each(function () {
-				$(this).removeClass("show");
-			});
+		if ($nav.hasClass("show")) {
+			$nav.removeClass("show");
 		}
 	});
 
-	// Navbar Scroll
-	let navbar = $(".navbar");
+	function handleNavScroll() {
+		if ($("html, body").scrollTop() >= 100) {
+			$navbar.addClass("scroll");
+		} else {
+			$navbar.removeClass("scroll");
+		}
+	};
 
-	if ($("html, body").scrollTop() >= 100) {
-		navbar.addClass("scroll");
-	} else {
-		navbar.removeClass("scroll");
-	}
+	handleNavScroll();
 
 	$(window).on("scroll", function () {
-		if ($("html, body").scrollTop() >= 100) {
-			navbar.addClass("scroll");
-		} else {
-			navbar.removeClass("scroll");
-		}
+		handleNavScroll();
 	});
 
 	// Close Navbar When Click Anywhere Out Of The Nav List
@@ -60,15 +45,9 @@ $(function () {
 	});
 
 	$(document).on("click", function (e) {
-		if (navItems.hasClass("show")) {
-			if (e.target !== $(".nav-list") && e.target !== navBtn) {
-				navBtn.removeClass("show");
-
-				navList.removeClass("show");
-
-				navItems.each(function () {
-					$(this).removeClass("show");
-				});
+		if ($nav.hasClass("show")) {
+			if (e.target !== $(".nav-list") && e.target !== $navBtn) {
+				$nav.removeClass("show");
 			}
 		}
 	});
@@ -110,7 +89,7 @@ $(function () {
 				if (itemMove > itemsLength - resActiveMd) {
 					itemMove--;
 					activeSlides--;
-				}	
+				}
 			} else if ($(window).width() <= 767) {
 				defaultActiveSlides = resActiiveSm;
 			} else {
