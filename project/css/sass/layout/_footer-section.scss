@@ -21,6 +21,14 @@
 
 				&:last-of-type {
 					margin-right: 0;
+
+					&::before {
+						display: none;
+	
+						@media (max-width: $grid-max-xs) {
+							display: none;
+						}
+					}	
 				}
 
 				@media (max-width: $grid-max-xs) {
@@ -44,7 +52,6 @@
 					background-color: #4e5052;
 
 					@media (max-width: $grid-max-xs) {
-						content: "";
 						display: none;
 					}
 				}

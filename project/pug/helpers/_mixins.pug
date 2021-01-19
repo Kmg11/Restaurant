@@ -28,7 +28,7 @@ mixin specialMenuCard(img, price, title, desc)
 		.card-image
 			+ratio(img, title, "menu-ratio")
 
-			span.price $ #{price}
+			span.price #[bdi $#{price}]
 
 		.card-content
 			h4.card-title= title

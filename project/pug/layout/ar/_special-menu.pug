@@ -1,0 +1,22 @@
+section.special-menu.section-style.text-center
+	.container
+		+sectionHeader("قائمة خاصة", "نكهة الخريف اللذيذة")
+
+		.section-body
+			.cards
+				.menu-slider
+					.slider
+						.slider-banner
+							- var imgs = ["images/menu/img-1.jpg", "images/menu/img-2.jpg", "images/menu/img-3.jpg", "images/menu/img-2.jpg", "images/menu/img-1.jpg", "images/menu/img-3.jpg"]
+							- var prices = ["25", "42", "30", "42", "25", "30"]
+							- var titles = ["Super BBQ Grill No Smoke", "Queen Of Autumn", "Royal Liver Fried", "Queen Of Autumn", "Super BBQ Grill No Smoke", "Royal Liver Fried"]
+							- var descs = ["هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص"]
+
+							- for (var i = 0; i < imgs.length; i++)
+								+specialMenuCard(imgs[i], prices[i], titles[i], descs[0])
+
+					.slider-arrows
+						button.arrow.next #[i.fa.fa-angle-right]
+						button.arrow.prev #[i.fa.fa-angle-left]
+
+			a(href="#" class="view-more playfair-font") View Full Menu

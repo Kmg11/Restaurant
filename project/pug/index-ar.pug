@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="ar")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title مطعم - الصفحة الرئيسية
+
+		//- FOnt Awesome
+		link(rel="stylesheet", href="css/vendors/all.css")
+
+		//- Droid Arabic Kofi Font
+		link(rel="stylesheet", href="https://fontlibrary.org/face/droid-arabic-kufi")
+
+		//- Main Css File
+		link(rel="stylesheet", href="css/main.css")
+		link(rel="stylesheet", href="css/main-ar.css")
+	body
+		//- Mixins
+		include helpers/_mixins.pug
+
+		//- Navbar
+		include layout/ar/_navbar.pug
+
+		//- Landing Page Section
+		include layout/ar/_landing-page.pug
+		
+		//- Our Story Section
+		include layout/ar/_story-section.pug
+
+		//- Special Maru Section
+		include layout/ar/_special-menu.pug
+
+		//- Testimonials Section
+		include layout/ar/_testimonials-section.pug
+
+		//- Review Section
+		include layout/ar/_review-section.pug
+
+		//- News Section
+		include layout/ar/_news-section.pug
+
+		//- Contact Us Section
+		include layout/ar/_contact-section..pug
+
+		//- Footer Section
+		include layout/ar/_footer-section.pug
+
+		//- Scripts
+		script(src="js/vendors/jquery.js")
+		script(src="js/main-ar.js")
