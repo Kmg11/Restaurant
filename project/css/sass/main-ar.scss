@@ -125,6 +125,10 @@ body {
 				right: auto;
 				left: 0;
 
+				@media (max-width: 575.98px) {
+					left: 50%;
+				}
+
 				span {
 					&.small {
 						letter-spacing: 10px;
@@ -199,7 +203,7 @@ body {
 
 .special-menu {
 	.section-body {
-		.cards  {
+		.cards {
 			.menu-slider {
 				.slider {
 					.slider-banner {
@@ -263,7 +267,7 @@ body {
 					right: -30px;
 					border-color: transparent transparent transparent #fff;
 				}
-				
+
 				&.arrow-right::before {
 					right: auto;
 					left: -30px;
@@ -283,7 +287,8 @@ body {
 							right: auto;
 							transform: translateX(-50%);
 							border-width: 15px 10px 15px 10px;
-							border-color: transparent transparent #fff transparent;
+							border-color: transparent transparent #fff
+								transparent;
 						}
 					}
 				}
@@ -343,17 +348,30 @@ body {
 				&:first-of-type {
 					margin-left: 30px;
 					margin-right: 0;
+
+					@media (max-width: 575.98px) {
+						margin-left: 0;
+					}
 				}
 
 				&:last-of-type {
 					margin-right: 30px;
 					margin-left: 0;
+
+					@media (max-width: 575.98px) {
+						margin-right: 0;
+					}
 				}
 
 				&::before {
 					right: auto;
 					left: -30px;
 					transform: translate(50%, -50%);
+				}
+
+				@media (max-width: 575.98px) {
+					margin: 0;
+					margin-bottom: 15px;
 				}
 			}
 		}
