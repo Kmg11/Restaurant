@@ -1,6 +1,12 @@
 .landing-page {
 	@include bg-img("../images/bg.jpg", #000, 0.4, fixed, false);
 
+	&::before {
+		min-height: 500px;
+		height: 100vh;
+		max-height: 900px;
+	}
+	
 	.content {
 		min-height: 500px;
 		height: 100vh;
