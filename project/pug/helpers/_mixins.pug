@@ -23,7 +23,7 @@ mixin author(name, jop)
 //- Special Menu Card
 mixin specialMenuCard(img, price, title, desc)
 	.card.clickable-item.slider-item
-		a(href="#" class="clickable-anchor")
+		a(href="#" class="clickable-anchor" aria-label="Card Link")
 
 		.card-image
 			+ratio(img, title, "menu-ratio")
@@ -31,5 +31,5 @@ mixin specialMenuCard(img, price, title, desc)
 			span.price #[bdi $#{price}]
 
 		.card-content
-			h4.card-title= title
+			h3.card-title= title
 			p.card-desc.custom-paragraph= desc
