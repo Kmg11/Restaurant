@@ -9,7 +9,8 @@ Landing page with 2 lang [ English - Arabic ] with a high level of performance, 
 ### Links
 
 - [Github](https://github.com/Kmg11/Restaurant "Github Repo")
-- [Live](https://kmg11.github.io/Restaurant/dist/ "Live Preview")
+- [Live English](https://kmg11.github.io/Restaurant/dist/index.html "Live Preview English")
+- [Live Arabic](https://kmg11.github.io/Restaurant/dist/index-ar.html "Live Preview Arabic")
 
 ---
 
